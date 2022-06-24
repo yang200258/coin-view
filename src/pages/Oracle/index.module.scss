@@ -1,0 +1,51 @@
+.oracleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: res;
+  height: 100%;
+  .coinContainer {
+    width: 100%;
+    margin: 0 65px;
+    flex-direction: column;
+    display: flex;
+    height: 70%;
+    .iconTitle {
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      span {
+        display: block;
+        margin-left: 16px;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        text-transform: capitalize;
+        color: #00D7D7;
+      }
+    }
+    .coinContent {
+      flex: 1;
+      overflow-y: scroll;
+      .skeleton {
+        width: 290px;
+        height: 138px;
+        animation: shineMove 2s infinite;
+      }
+    }
+  }
+}
+@keyframes shineMove {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
