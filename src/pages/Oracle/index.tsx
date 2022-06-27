@@ -13,14 +13,14 @@ const Oracle: React.FC<OracleInterface> = () => {
   const [clickItemIdx, setClickItemIdx] = useState<number | undefined>(undefined);
   const [coinList, setCoinList] = useState<CoinItem[]>([]);
   useEffect(() => {
+    const fakeFetchCoinList = async () => {
+      await sleep(2500);
+      const list = await getRandomList(20);
+      setCoinList(list);
+    }
+    
     fakeFetchCoinList();
   }, []);
-
-  const fakeFetchCoinList = async () => {
-    await sleep(2500);
-    const list = await getRandomList(20);
-    setCoinList(list);
-  }
 
   return (
     <div className={styles.oracleContainer}>

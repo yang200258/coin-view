@@ -35,21 +35,21 @@ const BlockItem: React.FC<CoinItem & { clickItemIdx: undefined | number; setClic
   }, [calExpireDate]);
 
   useEffect(() => {
+    const getCoinPrice = async (subscriptionId: number) => {
+      sleep(1000);
+      const price = await fakeFetchCoinPrice(subscriptionId);
+      setCoinPrice(transformPrice(price));
+    }
+  
+    const getCoinLogo = async (subscriptionId: number) => {
+      sleep(1000);
+      const logo = await fakeFetchCoinLogo(subscriptionId);
+      setCoinLogo(logo);
+    }
+    
     getCoinPrice(subscriptionId);
     getCoinLogo(subscriptionId);
   }, [subscriptionId]);
-
-  const getCoinPrice = async (subscriptionId: number) => {
-    sleep(1000);
-    const price = await fakeFetchCoinPrice(subscriptionId);
-    setCoinPrice(transformPrice(price));
-  }
-
-  const getCoinLogo = async (subscriptionId: number) => {
-    sleep(1000);
-    const logo = await fakeFetchCoinLogo(subscriptionId);
-    setCoinLogo(logo);
-  }
 
   return (
     <div
